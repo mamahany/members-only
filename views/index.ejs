@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>thefacebook</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('./partials/header') %>
+  <div class="container">
+    <% if(currentUser){%>
+        <p>Welcome <%= currentUser.first_name%> 👋</p>
+    <%}%>
+    <h2>Messages</h2>
+    <% if (messages.length === 0) { %>
+      <p>No messages yet. Be the first to post!</p>
+    <% } else { %>
+      <% messages.forEach(msg => { %>
+        <div class="message">
+          <h3><%= msg.title %></h3>
+          <p><%= msg.content %></p>
+          <small>
+            Posted by <%= currentUser?.is_member || currentUser?.is_admin ?`${msg.first_name} ${msg.last_name}` : "Anonymous" %> on
+            <%= currentUser?.is_member || currentUser?.is_admin ? new Date(msg.created_at).toLocaleString() : "****" %>
+          </small>
+          <% if(currentUser?.is_admin){%>
+            <a href="/delete/<%= msg.id %>">Delete</a>
+        <%}%>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+</body>
+</html>

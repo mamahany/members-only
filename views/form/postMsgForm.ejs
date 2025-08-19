@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Message</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<%- include('../partials/header')%>
+  <div class="container">
+    <%- include('../partials/errors')%>
+    <h2>Post a Message</h2>
+    <form action="/new" method="POST" class="message-form">
+      <input type="text" name="title" placeholder="Title" required>
+      <br><br>
+      <textarea name="content" rows="5" cols="40" placeholder="Write your message..." required></textarea>
+      <br>
+      <button type="submit">Post</button>
+    </form>
+  </div>
+</body>
+</html>
+

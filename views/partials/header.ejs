@@ -1,0 +1,16 @@
+<header>
+    <div class="header-container">
+      <a href="/"><img src="/zuck.gif" alt="Thefacebook" /></a>
+    </div>
+  <nav class="navbar">
+    <% if (currentUser) { %>
+      <a href="/new" class="btn">New Message</a>
+      <a href="/auth/logout" class="btn">Logout</a>
+      <a href="/auth/join-community" class="btn">Join Community</a>
+      <a href="/auth/become-admin" class="btn">Become Admin</a>
+    <% } else { %>
+      <a href="/auth/login" class="btn">Login</a>
+      <a href="/auth/sign-up" class="btn">Sign Up</a>
+    <% } %>
+  </nav>
+</header>  

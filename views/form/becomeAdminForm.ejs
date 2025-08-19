@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+        <title>thefacebook</title>
+    </head>
+    <body>
+        <%- include('../partials/header') %>
+        <div class="become-admin">
+            <h2>Become an admin</h2>
+            <p>Enter the secret code below to become an admin:</p>
+            <% if(currentUser?.is_admin){ %>
+                <p>You are an admin.</p>
+            <% }else{ %>
+            <form action="/auth/become-admin" method="POST">
+              <label for="secret">Secret Code</label>
+              <input type="text" id="secret" name="secret" required>
+              <button type="submit">Done</button>
+            </form>
+            <% } %>
+          </div>
+    </body>
+</html>

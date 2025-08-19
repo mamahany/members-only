@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+        <title>thefacebook</title>
+    </head>
+    <body>
+        <%- include('../partials/header') %>
+        <div class="join-community">
+            <h2>Join the Community</h2>
+            <p>Enter the secret code (wind) below to become a member:</p>
+            <% if(currentUser?.is_member){ %>
+                <p>You are a member.</p>
+            <% }else{ %>
+                <form action="/auth/join-community" method="POST">
+                    <label for="secret">Secret Code</label>
+                    <input type="text" id="secret" name="secret" required>
+                    <button type="submit">Join</button>
+                </form>
+           <% } %>
+          </div>
+    </body>
+</html>
+  
